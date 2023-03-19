@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { HorizontalScore } from "./Common";
 
 const Navigation = () => {
     return (
@@ -10,7 +11,7 @@ const Navigation = () => {
                 </Link>
 
                 <NavOptions>
-                    <Link to="/CV">
+                    <Link to="/">
                         <NavOption>CV</NavOption>
                     </Link>
                     <Link to="/">
@@ -22,7 +23,7 @@ const Navigation = () => {
                 </NavOptions>
             </Nav>
 
-            <NavAccent />
+            <HorizontalScore />
         </>
     );
 };
@@ -35,9 +36,9 @@ const Nav = styled.div`
     display: flex;
     max-width: 1000px;
     margin: 0px auto;
+    padding: 10px;
 
     justify-content: space-between;
-    border-left: 5px solid var(--secondary);
     z-index: 1000;
 `;
 
@@ -63,12 +64,4 @@ const NavOption = styled.div`
     color: var(--secondary);
     font: var(--button-font);
     transition: background-color 0.2s;
-`;
-
-const NavAccent = styled.div`
-    background-color: var(--secondary);
-    height: 5px;
-    position: sticky;
-    top: 37px;
-    z-index: 1000;
 `;
