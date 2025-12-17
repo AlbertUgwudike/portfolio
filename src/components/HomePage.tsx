@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Content, HorizontalScore, Subtitle, Title } from "./Common";
 import me from "../assets/me.jpg";
 import ecg_thumb from "../assets/ecg_thumb.png";
+import cloud from "../assets/cloud.jpg";
 import { useNavigate } from "react-router";
 
 type HomePageProps = {};
@@ -11,7 +12,7 @@ const HomePage = (props: HomePageProps) => {
 
     return (
         <>
-            <Dashboard>
+            <Dashboard src={cloud}>
                 <ProfilePic src={me} />
                 <Quote>
                     <QuoteBody>Software Engineer.</QuoteBody>
@@ -48,11 +49,13 @@ const HomePage = (props: HomePageProps) => {
 
 export default HomePage;
 
-const Dashboard = styled.div`
+const Dashboard = styled.div<{ src: string }>`
     display: flex;
     padding: 20px;
     justify-content: center;
     align-items: center;
+    background-image: url(${props => props.src});
+    background-size: cover;
 `;
 
 const ProfilePic = styled.img`
@@ -86,10 +89,11 @@ const DescriptionContent = styled.div`
 `;
 
 const Quote = styled.div`
+    background-color: var(--primary);
     text-align: center;
-    padding: 40px 0;
+    padding: 20px 0;
     margin: 0 50px;
-    border-radius: 5px;
+    border: 5px solid var(--secondary);
     width: 50%;
 `;
 
